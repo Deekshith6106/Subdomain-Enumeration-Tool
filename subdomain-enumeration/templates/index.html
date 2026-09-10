@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}SubEnum &mdash; Subdomain Enumeration Tool{% endblock %}
+
+{% block content %}
+<div class="scan-wrapper">
+
+  <div class="scan-card">
+    <h1>Subdomain Enumeration</h1>
+    <p class="scan-subtitle">
+      Enter a domain to enumerate common subdomains via DNS resolution
+      (wordlist-based, A-record lookups only).
+    </p>
+
+    <form id="scan-form" novalidate>
+      <div class="form-row">
+        <div class="form-group grow">
+          <label for="domain">Target Domain</label>
+          <input type="text" id="domain" name="domain" placeholder="example.com" autocomplete="off" maxlength="253" required>
+          <small class="field-hint">Enter a bare domain name, e.g. <code>example.com</code> (no <code>http://</code>, no paths).</small>
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button type="submit" class="btn btn-primary" id="scan-btn">Start Scan</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="alert-box" class="alert-box hidden"></div>
+
+    <div id="progress-section" class="progress-section hidden">
+      <div class="progress-info">
+        <span id="progress-label">Scanning...</span>
+        <span id="progress-count">0 / 0</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-card hidden" id="results-card">
+    <div class="results-header">
+      <h2>Results for <span id="results-domain" class="accent"></span></h2>
+      <span class="results-count" id="results-count">0 active subdomains found</span>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="results-table" id="results-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Subdomain</th>
+            <th>IP Address(es)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="results-body">
+        </tbody>
+      </table>
+    </div>
+
+    <p class="empty-state hidden" id="empty-state">
+      No active subdomains were found from the current wordlist. Try a domain
+      you know has public subdomains, or extend <code>wordlists/subdomains.txt</code>.
+    </p>
+  </div>
+
+</div>
+{% endblock %}

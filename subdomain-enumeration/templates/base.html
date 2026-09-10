@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Subdomain Enumeration Tool{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <nav class="navbar">
+    <div class="brand"><span class="brand-icon">&#128270;</span> Sub<span class="accent">Enum</span></div>
+    <div class="nav-tag">DNS-based subdomain discovery</div>
+  </nav>
+
+  <div class="authz-banner">
+    &#9888;&#65039; <strong>Authorization required:</strong> only scan domains you own or have explicit written
+    permission to assess. Unauthorized scanning of systems you do not control may be illegal.
+  </div>
+
+  <main class="page-container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>Subdomain Enumeration Tool &mdash; educational reference implementation. DNS lookups only, no exploitation.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
