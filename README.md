@@ -3,6 +3,10 @@ A local, educational web application that discovers active subdomains of a domai
 
 ⚠️ Authorization required. Only run this tool against domains you own or have explicit written permission to test. Scanning systems you don't control may violate laws such as the U.S. Computer Fraud and Abuse Act, the UK Computer Misuse Act, or equivalent legislation elsewhere, even when the technique itself (DNS lookups) is passive and low-impact.
 
+LIVE DEMO LINK
+https://subdomain-enumeration-tool-mc2t.onrender.com
+
+
 📌 Problem Statement
 Subdomains are often forgotten, unmonitored, or misconfigured — a dev., staging., or old. subdomain can expose outdated software or internal tools to the public internet. Security teams and bug bounty researchers routinely start an assessment by mapping an organization's subdomain footprint so nothing is overlooked. Doing this by hand (typing dig www.example.com, dig mail.example.com, ... one at a time) doesn't scale.
 
